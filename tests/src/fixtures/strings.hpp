@@ -26,7 +26,7 @@ class StringsFixture : public ::testing::TestWithParam<std::string>
 };
 
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     StringsFixtureName,  // Instantiation name
     StringsFixture,  // Fixture controller
     ::testing::Values(  // Parameters

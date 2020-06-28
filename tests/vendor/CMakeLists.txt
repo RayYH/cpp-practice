@@ -46,5 +46,6 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
             "${gtest_SOURCE_DIR}/include" "${gmock_SOURCE_DIR}/include")
 else ()
     target_include_directories(gmock_main SYSTEM BEFORE INTERFACE
-            "${gtest_SOURCE_DIR}/include" "${gmock_SOURCE_DIR}/include")
+            "$<BUILD_INTERFACE:${gtest_SOURCE_DIR}/include>"
+            "$<BUILD_INTERFACE:${gmock_SOURCE_DIR}/include>")
 endif ()
