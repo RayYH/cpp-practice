@@ -63,15 +63,18 @@ jobs:
         uses: lukka/get-cmake@latest
 
       - name: "Configure"
+        uses: cmake .
+
+      - name: "Run unit tests"
+        run: |
+          cd tests
+          set CTEST_OUTPUT_ON_FAILURE=1
+          ./tests -C "${{ matrix.build_type }}" -VV
+
+      - name: "Configure"
         run: |
           mkdir build
           cmake -B build -DCMAKE_BUILD_TYPE="${{ matrix.build_type }}" -DCMAKE_CXX_COMPILER="${{ matrix.cxx }}" -DCMAKE_C_COMPILER="${{ matrix.cc }}"
 
       - name: "Build code"
         run: cmake --build build --config "${{ matrix.build_type }}"
-
-      - name: "Run unit tests"
-        run: |
-          cd build/tests
-          set CTEST_OUTPUT_ON_FAILURE=1
-          ./tests -C "${{ matrix.build_type }}" -VV
