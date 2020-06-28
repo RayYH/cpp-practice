@@ -63,13 +63,14 @@ jobs:
         uses: lukka/get-cmake@latest
 
       - name: "Configure"
-        uses: cmake .
+        run: cmake .
 
       - name: "Run unit tests"
         run: |
           cd tests
           set CTEST_OUTPUT_ON_FAILURE=1
           ./tests -C "${{ matrix.build_type }}" -VV
+          cd ..
 
       - name: "Configure"
         run: |
