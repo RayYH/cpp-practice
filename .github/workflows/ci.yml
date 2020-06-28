@@ -63,7 +63,9 @@ jobs:
         uses: lukka/get-cmake@latest
 
       - name: "Configure"
-        run: cmake .
+        run: |
+          cmake .
+          make
 
       - name: "Run unit tests"
         run: |
