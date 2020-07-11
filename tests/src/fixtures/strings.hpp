@@ -12,31 +12,29 @@
 #include <string>
 
 
-class StringsFixture : public ::testing::TestWithParam<std::string>
-{
-    public:
-        virtual void SetUp()
-        {
-            // Do some setup
-        }
-        virtual void TearDown()
-        {
-            // Do some tear down
-        }
+class StringsFixture : public ::testing::TestWithParam<std::string> {
+public:
+    virtual void SetUp() {
+        // Do some setup
+    }
+
+    virtual void TearDown() {
+        // Do some tear down
+    }
 };
 
 
 INSTANTIATE_TEST_SUITE_P(
-    StringsFixtureName,  // Instantiation name
-    StringsFixture,  // Fixture controller
-    ::testing::Values(  // Parameters
-        "Kano",
-        "KanoTest",
-        "Kano123",
-        "123Kano",
-        "^$K@",
-        "Kano%£("
-    )
+        StringsFixtureName,  // Instantiation name
+        StringsFixture,  // Fixture controller
+        ::testing::Values(  // Parameters
+                "Kano",
+                "KanoTest",
+                "Kano123",
+                "123Kano",
+                "^$K@",
+                "Kano%£("
+        )
 );
 
 
