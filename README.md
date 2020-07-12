@@ -20,7 +20,7 @@ $ make
 Run main executable:
 
 ```bash
-$ ./sample
+$ ./cpp_practice
 ```
 
 Run tests:
