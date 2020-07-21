@@ -1,5 +1,7 @@
 # CPP Practice
 
+Some cpp code, **use at your own risk**. The structure of this project was inspired by [this repo](https://github.com/KanoComputing/googletest-sample).
+
 ## Requirements
 
 In order to get things working, you will need:
@@ -34,10 +36,6 @@ You can build and run the tests all this with one line:
 ```bash
 $ cmake . && make && ./tests/tests
 ```
-
-## Structure
-
-Refer to [this repo](https://github.com/KanoComputing/googletest-sample) to get more information.
 
 ## License
 
