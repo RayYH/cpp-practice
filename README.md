@@ -41,6 +41,10 @@ $ cmake . && make && ./tests/tests
 
 See [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 
+## Toc
+
+See [Toc](toc.md).
+
 ## License
 
 [MIT](./LICENSE).
