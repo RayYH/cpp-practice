@@ -37,6 +37,10 @@ You can build and run the tests all this with one line:
 $ cmake . && make && ./tests/tests
 ```
 
+## Style Guide
+
+See [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+
 ## License
 
 [MIT](./LICENSE).
