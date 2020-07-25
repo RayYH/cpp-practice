@@ -1,4 +1,4 @@
-# Features
+# ToC
 
 ## Core
 
@@ -7,3 +7,5 @@
 - [x] basic io
 - [x] operators
 - [x] control flows
+- [x] functions
+- [x] storage classes
