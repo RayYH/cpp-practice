@@ -4,9 +4,9 @@
 StringContainer::StringContainer() {}
 
 bool StringContainer::IsValid(std::string str) {
-    return str.find("Kano") == 0;
+  return str.find("Kano") == 0;
 }
 
 int StringContainer::GetNumber() {
-    return 5;
+  return 5;
 }

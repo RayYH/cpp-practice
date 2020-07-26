@@ -4,12 +4,12 @@
 #include <string>
 
 class StringContainer {
-public:
-    StringContainer();
+ public:
+  StringContainer();
 
-    virtual bool IsValid(std::string str);
+  virtual bool IsValid(std::string str);
 
-    virtual int GetNumber();
+  virtual int GetNumber();
 };
 
 #endif //CPP_PRACTICE_STRING_CONTAINER_HPP
