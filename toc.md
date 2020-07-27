@@ -9,3 +9,5 @@
 - [x] control flows
 - [x] functions
 - [x] storage classes
+- [x] arrays
+- [x] strings
