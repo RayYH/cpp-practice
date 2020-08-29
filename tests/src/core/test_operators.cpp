@@ -126,10 +126,11 @@ TEST(operators, bitwise_operators) {
   /*
    * Complement
    * 4
-   * 0000 0100 - 原码 (正数的原码即为真值)
-   * 1111 1011 - 取反，得到的结果在计算机中存储的形式是补码，此补码指示其值是一个负数 (最高位是1)
-   * 1111 1010 - -1 (负数的补码由其原码取反 +1 而得，因此我们需要 -1 再对符号位之外的各位取反)
-   * 1000 0101 - 取反 (1 + 4)
+   * 0000 0100 - true code -> below is an inverse form
+   * 1111 1011 - will be treated as a 2's complement, this is a negative number
+   *           - so, to get the true code, minus one first
+   * 1111 1010 - then, inverse all numbers except the sign
+   * 1000 0101
    *
    * There is a simple rule: A + (~A) = -1
    */
