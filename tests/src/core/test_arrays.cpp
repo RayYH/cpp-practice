@@ -10,9 +10,8 @@ TEST(arrays, declaration) {
   // modify array elements
   y[2] = 4;
 
-  // for each loop
-  // const int &n - memory-efficient
-  for (const int &n : x) {
+  // range based for loop
+  for (const int &n : x) { // const int &n - memory-efficient
     cout << n;
   }
 
@@ -23,7 +22,7 @@ TEST(arrays, declaration) {
   }
 
   cout << " ";
-  // for loop
+  // normal for loop
   for (int i = 0; i < 4; i++) {
     cout << z[i];
   }
