@@ -1,6 +1,6 @@
 version: '3'
 services:
-  bash:
+  cpp_practice:
     image: rayyounghong/ubuntu-cmake:latest
     container_name: cpp-practice
     volumes:
