@@ -70,6 +70,23 @@ TEST(while_loop, basic_while_loop) {
   }
 }
 
+TEST(while_loop, sum_of_input_values) {
+  int sum = 0, value = 0;
+  std::istringstream in("3 7 10 12 16 11");
+  while (in >> value) {
+    sum += value;
+  }
+  ASSERT_EQ(59, sum);
+  // encounter non-numeric chars will stop input
+  // The eol flag on *nix is Ctrl+D
+  std::istringstream in2("3 7 10 zzz 12 16 11");
+  sum = 0;
+  while (in2 >> value) {
+    sum += value;
+  }
+  ASSERT_EQ(20, sum);
+}
+
 TEST(do_while_loop, basic_do_while_loop) {
   int i = 0, j = 0;
   do {
@@ -139,6 +156,7 @@ TEST(break_continue, usage_inside_loop) {
 
 TEST(switch_statement, basic_switch) {
   ASSERT_EQ(Calc(4, 2, '+'), 6);
+  ASSERT_EQ(Calc(4, 2, '|'), 6);
   ASSERT_EQ(Calc(4, 2, '-'), 2);
   ASSERT_EQ(Calc(4, 2, '*'), 8);
   ASSERT_EQ(Calc(4, 2, '/'), 2);
