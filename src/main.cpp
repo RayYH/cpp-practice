@@ -6,6 +6,7 @@ using namespace std;
 // `g++ -o main main.cpp` - compile
 // `g++ -std=c++11 -o main main.cpp` - use given c++ standard version
 // the type of returned value of main func must be int
+// C++ programs start by executing the function main
 int main(int argc, char *argv[]) {
   string input_str;
   // argv[0] stores the executable file name
