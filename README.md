@@ -43,4 +43,4 @@ See [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 
 ## License
 
-This work is open-sourced and licensed under the [MIT License](./LICENSE).
+This work is open-sourced and licensed under the [MIT license](LICENSE).
