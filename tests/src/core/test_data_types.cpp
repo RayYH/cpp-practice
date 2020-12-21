@@ -79,3 +79,24 @@ TEST(data_types, type_conversion) {
   num_int = (int) num_double;
   EXPECT_EQ(num_int, 9);
 }
+
+TEST(data_types, safe_conversion) {
+  /**
+   * Safe conversion.
+   *
+   * bool to char
+   * bool to int
+   * bool to double
+   * char to int
+   * char to double
+   * int to double
+   */
+  char c = 'x';
+  int i1 = c;
+  int i2 = 'x';
+  char c2 = i2;
+  testing::internal::CaptureStdout();
+  std::cout << c << i1 << c2;
+  std::string out = testing::internal::GetCapturedStdout();
+  ASSERT_EQ(out, "x120x");
+}

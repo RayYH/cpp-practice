@@ -23,9 +23,9 @@ TEST(basic_io, print_numbers_and_characters) {
   int num1 = 70;
   double num2 = 256.783;
   char ch = 'A';
-  cout << num1 << endl;    // print integer
-  cout << num2 << endl;    // print double
-  cout << "character: " << ch << endl;    // print char
+  cout << num1 << std::endl;    // print integer
+  cout << num2 << std::endl;    // print double
+  cout << "character: " << ch << std::endl;    // print char
   std::string output = testing::internal::GetCapturedStdout();
   EXPECT_EQ(output, "70\n256.783\ncharacter: A\n");
 }
@@ -36,7 +36,7 @@ TEST(basic_io, get_input_from_user) {
   ostringstream out;
   int v1 = 0, v2 = 0;
   in >> v1 >> v2;
-  out << "The sum is " << (v1 + v2) << endl;
+  out << "The sum is " << (v1 + v2) << std::endl;
   EXPECT_EQ(out.str(), "The sum is 10\n");
 }
 

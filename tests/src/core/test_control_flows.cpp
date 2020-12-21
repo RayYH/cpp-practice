@@ -2,6 +2,7 @@
 
 int GetSum(int *arr, int len) {
   int i, sum = 0;
+  // foo-loop
   for (i = 0; i < len; i++) {
     sum += *(arr + i);
   }
@@ -11,6 +12,7 @@ int GetSum(int *arr, int len) {
 
 int Calc(int a, int b, char op) {
   int v;
+  // switch-case
   switch (op) {
     case '+':
     default:
@@ -62,39 +64,6 @@ TEST(for_loop, basic_for_loop) {
   }
 }
 
-TEST(while_loop, basic_while_loop) {
-  int i = 0, j = 0;
-  while (i < 5) {
-    ASSERT_EQ(i, j++);
-    i++;
-  }
-}
-
-TEST(while_loop, sum_of_input_values) {
-  int sum = 0, value = 0;
-  std::istringstream in("3 7 10 12 16 11");
-  while (in >> value) {
-    sum += value;
-  }
-  ASSERT_EQ(59, sum);
-  // encounter non-numeric chars will stop input
-  // The eol flag on *nix is Ctrl+D
-  std::istringstream in2("3 7 10 zzz 12 16 11");
-  sum = 0;
-  while (in2 >> value) {
-    sum += value;
-  }
-  ASSERT_EQ(20, sum);
-}
-
-TEST(do_while_loop, basic_do_while_loop) {
-  int i = 0, j = 0;
-  do {
-    ASSERT_EQ(i, j++);
-    i++;
-  } while (i < 5);
-}
-
 TEST(for_loop, use_for_loop_get_sum) {
   int a[5] = {1, 2, 3, 4, 5};
   ASSERT_EQ(GetSum(a, 5), 15);
@@ -126,6 +95,31 @@ TEST(for_loop, infinite_for_loop) {
   ASSERT_EQ(i, 10);
 }
 
+TEST(while_loop, basic_while_loop) {
+  int i = 0, j = 0;
+  while (i < 5) {
+    ASSERT_EQ(i, j++);
+    i++;
+  }
+}
+
+TEST(while_loop, sum_of_input_values) {
+  int sum = 0, value = 0;
+  std::istringstream in("3 7 10 12 16 11");
+  while (in >> value) {
+    sum += value;
+  }
+  ASSERT_EQ(59, sum);
+  // encounter non-numeric chars will stop input
+  // The eol flag on *nix is Ctrl+D
+  std::istringstream in2("3 7 10 zzz 12 16 11");
+  sum = 0;
+  while (in2 >> value) {
+    sum += value;
+  }
+  ASSERT_EQ(20, sum);
+}
+
 TEST(while_loop, infinite_while_loop) {
   int i = 0;
   // Infinite while loop
@@ -136,6 +130,14 @@ TEST(while_loop, infinite_while_loop) {
     i++;
   }
   ASSERT_EQ(i, 10);
+}
+
+TEST(do_while_loop, basic_do_while_loop) {
+  int i = 0, j = 0;
+  do {
+    ASSERT_EQ(i, j++);
+    i++;
+  } while (i < 5);
 }
 
 TEST(break_continue, usage_inside_loop) {

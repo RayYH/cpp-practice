@@ -4,6 +4,11 @@
 // function prototype
 int Add(int, int);
 
+// function definition
+int Add(int a, int b) {
+  return (a + b);
+}
+
 TEST(functions, simple_add) {
   ASSERT_EQ(Add(1, 2), 3);
 }
@@ -16,28 +21,24 @@ TEST(functions, std_functions) {
   ASSERT_FLOAT_EQ(squareRoot, 5.0);
 }
 
-// function definition
-int Add(int a, int b) {
-  return (a + b);
-}
+/// function overloading
 
-// function overloading
 // function with float type parameter
-float absolute(float var) {
+float Absolute(float var) {
   if (var < 0.0)
     var = -var;
   return var;
 }
 
 // function with int type parameter
-int absolute(int var) {
+int Absolute(int var) {
   if (var < 0)
     var = -var;
   return var;
 }
 
 // function with int type parameter
-int absolute(int var1, int var2) {
+int Absolute(int var1, int var2) {
   int var = var1 + var2;
   if (var < 0)
     var = -var;
@@ -45,55 +46,55 @@ int absolute(int var1, int var2) {
 }
 
 TEST(functions, overloading) {
-  ASSERT_EQ(absolute(1), 1);
-  ASSERT_EQ(absolute(-1), 1);
-  ASSERT_EQ(absolute(1.0f), 1.0f);
-  ASSERT_EQ(absolute(-1.0f), 1.0f);
-  ASSERT_EQ(absolute(1, 2), 3);
-  ASSERT_EQ(absolute(1, -2), 1);
+  ASSERT_EQ(Absolute(1), 1);
+  ASSERT_EQ(Absolute(-1), 1);
+  ASSERT_EQ(Absolute(1.0f), 1.0f);
+  ASSERT_EQ(Absolute(-1.0f), 1.0f);
+  ASSERT_EQ(Absolute(1, 2), 3);
+  ASSERT_EQ(Absolute(1, -2), 1);
 }
 
-// function default parameters
+/// function default parameters
+
 // If we are defining the default arguments in the function definition
 // instead of the function prototype, then the function must be defined
 // before the function call.
-std::string greet(std::string name = "World") {
+std::string Greet(std::string name = "World") {
   return "Hello " + name;
 }
 
 TEST(functions, default_parameters) {
-  ASSERT_EQ(greet(), "Hello World");
-  ASSERT_EQ(greet("Ray"), "Hello Ray");
+  ASSERT_EQ(Greet(), "Hello World");
+  ASSERT_EQ(Greet("Ray"), "Hello Ray");
 }
 
 // Recursion functions
-int factorial(int);
+int Factorial(int);
 
-TEST(functions, calc_factorial) {
-  ASSERT_EQ(factorial(4), 24);
-}
-
-int factorial(int n) {
+int Factorial(int n) {
   if (n > 1) {
-    return n * factorial(n - 1);
+    return n * Factorial(n - 1);
   } else {
     return 1;
   }
 }
 
-// return by reference
+TEST(functions, calc_factorial) {
+  ASSERT_EQ(Factorial(4), 24);
+}
 
-// Global variable
+// global variable
 int num;
 
-// Function declaration
-int &test();
+/// return by reference
+// function declaration
+int &MyFunc();
 
-int &test() {
+int &MyFunc() {
   return num;
 }
 
 TEST(functions, change_value_via_reference) {
-  test() = 5;
+  MyFunc() = 5;
   ASSERT_EQ(num, 5);
 }
