@@ -39,3 +39,26 @@ TEST(basic_io, get_input_from_user) {
   out << "The sum is " << (v1 + v2) << endl;
   EXPECT_EQ(out.str(), "The sum is 10\n");
 }
+
+// reading of strings is terminated by what is called whitespace,
+// that is, space, newline, and tab characters
+TEST(basic_io, terminated_by_whitespace) {
+  std::string firstName;
+  int age;
+  istringstream in("Ray 24 Ray\t24 Ray\n24");
+  for (int i = 0; i < 3; i++) {
+    in >> firstName >> age;
+    ASSERT_EQ(age, 24);
+    ASSERT_EQ(firstName, "Ray");
+  }
+}
+
+// whitespace by default is ignored by >>
+TEST(basic_io, ignore_whitespace) {
+  std::string firstName;
+  int age;
+  istringstream in("       Ray     24");
+  in >> firstName >> age;
+  ASSERT_EQ(age, 24);
+  ASSERT_EQ(firstName, "Ray");
+}
