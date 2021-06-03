@@ -17,15 +17,13 @@ class EmptyClassWithConstructorAndVirtualDestructor {
  * The c++ type system is very annoying!
  */
 TEST(data_types, types_size) {
-  /**
-   * maybe 2 or 4.
-   */
+  // sizeof(int) maybe 2 or 4
   ASSERT_GE(sizeof(int), 2);
   EXPECT_EQ(sizeof(float), 4);
   EXPECT_EQ(sizeof(double), 8);
   EXPECT_EQ(sizeof(char), 1);
   EXPECT_EQ(sizeof(bool), 1);
-  /**
+  /*
    * Unlike Windows UTF-16 2-byte wide chars, wchar_t
    * on Linux and OS X is 4 bytes UTF-32 (gcc/g++ and XCode).
    * On cygwin it is 2 (cygwin uses Windows APIs).
@@ -64,7 +62,8 @@ TEST(data_types, types_size) {
   ASSERT_EQ(sizeof(EmptyClass), 1);
   ASSERT_EQ(sizeof(EmptyClassWithConstructorAndDestructor), 1);
   // a pointer to the virtual table (vtable) for the class you are using
-  // The link to the virtual table takes 4 extra on 32bit, and 8 extra bytes on a 64bit platform.
+  // The link to the virtual table takes 4 extra on 32bit, and 8 extra
+  // bytes on a 64bit platform.
   ASSERT_GE(sizeof(EmptyClassWithConstructorAndVirtualDestructor), 4);
 }
 
@@ -81,7 +80,7 @@ TEST(data_types, type_conversion) {
 }
 
 TEST(data_types, safe_conversion) {
-  /**
+  /*
    * Safe conversion.
    *
    * bool to char
@@ -92,9 +91,9 @@ TEST(data_types, safe_conversion) {
    * int to double
    */
   char c = 'x';
-  int i1 = c;
+  int i1 = c;   // char to int
   int i2 = 'x';
-  char c2 = i2;
+  char c2 = i2; // int to char
   testing::internal::CaptureStdout();
   std::cout << c << i1 << c2;
   std::string out = testing::internal::GetCapturedStdout();
